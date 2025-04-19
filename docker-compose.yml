@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16.3
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: rasmoo-plus
+    ports:
+      - "5432:5432"
+    networks:
+      - banco-postegres
+    volumes:
+      - postgres_data:/data/db
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "15432:80"
+    networks:
+      - banco-postegres
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: docker
+      MONGO_INITDB_ROOT_PASSWORD: docker
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_db:/data/db
+
+networks:
+  banco-postegres:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  mongo_db:
