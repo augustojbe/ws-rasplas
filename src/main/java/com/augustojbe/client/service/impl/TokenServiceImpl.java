@@ -2,6 +2,8 @@ package com.augustojbe.client.service.impl;
 
 import com.augustojbe.client.model.UserCredential;
 import com.augustojbe.client.service.TokenService;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -25,7 +27,6 @@ public class TokenServiceImpl implements TokenService {
 
         Date today = new Date();
         Date expirationDate = new Date(today.getTime() + 1000 * 60 * 60 * 10);
-
         SecretKey key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
 
         return Jwts.builder()
@@ -35,6 +36,31 @@ public class TokenServiceImpl implements TokenService {
                 .setExpiration(expirationDate)
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
+    }
+
+    @Override
+    public Boolean isValid(String token) {
+        try {
+            getClaimsJws(token);
+            return true;
+        } catch (Exception ex) {
+            // Logar a exceção para diagnóstico
+            System.out.println("Erro ao validar token: " + ex.getMessage());
+            return false;
+        }
+    }
+
+
+    @Override
+    public Long getUserId(String token) {
+        Jws<Claims> claims = getClaimsJws(token);
+        return Long.parseLong(claims.getBody().getSubject());
+
+    }
+
+    private Jws<Claims> getClaimsJws(String token) {
+        SecretKey key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
+        return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
     }
 
 }

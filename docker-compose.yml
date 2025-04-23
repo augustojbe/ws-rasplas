@@ -37,6 +37,14 @@ services:
     volumes:
       - mongo_db:/data/db
 
+  redis:
+    image: redis:4
+    container_name: redis-rasplus
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data_container:/data/redis
+
 networks:
   banco-postegres:
     driver: bridge
@@ -44,3 +52,4 @@ networks:
 volumes:
   postgres_data:
   mongo_db:
+  redis_data_container:
