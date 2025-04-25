@@ -11,20 +11,19 @@ import com.augustojbe.client.integration.MailIntegration;
 import com.augustojbe.client.integration.WsRaspayIntegration;
 import com.augustojbe.client.mapper.UserPaymentInfoMapper;
 import com.augustojbe.client.mapper.wsraspay.CrediCardMapper;
-import com.augustojbe.client.mapper.wsraspay.PaymenteMapper;
-import com.augustojbe.client.model.User;
-import com.augustojbe.client.model.UserCredential;
-import com.augustojbe.client.model.UserPaymenteInfo;
 import com.augustojbe.client.mapper.wsraspay.CustomerMapper;
 import com.augustojbe.client.mapper.wsraspay.OrderMapper;
-import com.augustojbe.client.model.UserType;
-import com.augustojbe.client.repository.UseDetailRepository;
-import com.augustojbe.client.repository.UserPaymenteInfoRepository;
-import com.augustojbe.client.repository.UserRepository;
-import com.augustojbe.client.repository.UserTypeRepository;
+import com.augustojbe.client.mapper.wsraspay.PaymenteMapper;
+import com.augustojbe.client.model.jpa.User;
+import com.augustojbe.client.model.jpa.UserCredential;
+import com.augustojbe.client.model.jpa.UserPaymenteInfo;
+import com.augustojbe.client.repository.jpa.UseDetailRepository;
+import com.augustojbe.client.repository.jpa.UserPaymenteInfoRepository;
+import com.augustojbe.client.repository.jpa.UserRepository;
+import com.augustojbe.client.repository.jpa.UserTypeRepository;
 import com.augustojbe.client.service.PaymentInfoService;
+import com.augustojbe.client.utils.PasswordUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -87,7 +86,7 @@ public class PaymentInfoServiceImp implements PaymentInfoService {
                 throw new NotFoundException("UserType não encontrado");
             }
 
-            UserCredential userCredential = new UserCredential(null, user.getEmail(), new BCryptPasswordEncoder().encode(defaultPass), userTypeOpt.get() );
+            UserCredential userCredential = new UserCredential(null, user.getEmail(), PasswordUtils.encode(defaultPass), userTypeOpt.get() );
             useDetailRepository.save(userCredential);
 
             mailIntegration.send(user.getEmail(), "Usuário:" +user.getEmail()+ " - Senha: " + defaultPass, "Acesso Liberado");

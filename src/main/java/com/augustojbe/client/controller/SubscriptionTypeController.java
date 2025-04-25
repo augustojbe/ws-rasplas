@@ -1,11 +1,10 @@
 package com.augustojbe.client.controller;
 
 import com.augustojbe.client.dto.SubscriptionTypeDto;
-import com.augustojbe.client.model.SubscriptionType;
+import com.augustojbe.client.model.jpa.SubscriptionType;
 import com.augustojbe.client.service.SubscriptionTypeService;
 import jakarta.validation.Valid;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,19 +22,16 @@ public class SubscriptionTypeController {
     }
 
 
-
     @GetMapping
     public ResponseEntity<List<SubscriptionType>> findAll(){
         return ResponseEntity.status(HttpStatus.OK).body(subscriptionTypeService.findAll());
     }
-
 
     @GetMapping("/{id}")
     public ResponseEntity<SubscriptionType> findById(@PathVariable("id") Long id){
             return ResponseEntity.status(HttpStatus.OK).body(subscriptionTypeService.findById(id));
 
     }
-
 
     @PostMapping
     public ResponseEntity<SubscriptionType> create(@RequestBody @Valid SubscriptionTypeDto dto){

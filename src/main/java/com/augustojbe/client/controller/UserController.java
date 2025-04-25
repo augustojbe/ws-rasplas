@@ -1,7 +1,7 @@
 package com.augustojbe.client.controller;
 
 import com.augustojbe.client.dto.UserDto;
-import com.augustojbe.client.model.User;
+import com.augustojbe.client.model.jpa.User;
 import com.augustojbe.client.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -25,4 +25,5 @@ public class UserController {
     public ResponseEntity<User> create(@Valid @RequestBody UserDto dto){
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.create(dto));
     }
+
 }

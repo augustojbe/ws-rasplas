@@ -1,8 +1,8 @@
 package com.augustojbe.client.mapper;
 
 import com.augustojbe.client.dto.UserPaymentInfoDto;
-import com.augustojbe.client.model.User;
-import com.augustojbe.client.model.UserPaymenteInfo;
+import com.augustojbe.client.model.jpa.User;
+import com.augustojbe.client.model.jpa.UserPaymenteInfo;
 
 public class UserPaymentInfoMapper {
 

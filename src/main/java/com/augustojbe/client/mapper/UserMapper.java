@@ -1,9 +1,9 @@
 package com.augustojbe.client.mapper;
 
 import com.augustojbe.client.dto.UserDto;
-import com.augustojbe.client.model.SubscriptionType;
-import com.augustojbe.client.model.User;
-import com.augustojbe.client.model.UserType;
+import com.augustojbe.client.model.jpa.SubscriptionType;
+import com.augustojbe.client.model.jpa.User;
+import com.augustojbe.client.model.jpa.UserType;
 
 public class UserMapper {
 

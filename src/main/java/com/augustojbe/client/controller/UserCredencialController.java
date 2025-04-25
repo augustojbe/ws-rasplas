@@ -1,10 +1,10 @@
 package com.augustojbe.client.controller;
 
 import com.augustojbe.client.dto.LoginDto;
-import com.augustojbe.client.model.UserCredential;
-import com.augustojbe.client.model.UserType;
-import com.augustojbe.client.repository.UseDetailRepository;
-import com.augustojbe.client.repository.UserTypeRepository;
+import com.augustojbe.client.model.jpa.UserCredential;
+import com.augustojbe.client.model.jpa.UserType;
+import com.augustojbe.client.repository.jpa.UseDetailRepository;
+import com.augustojbe.client.repository.jpa.UserTypeRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;

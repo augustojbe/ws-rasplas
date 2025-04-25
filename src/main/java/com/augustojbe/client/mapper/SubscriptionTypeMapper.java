@@ -1,7 +1,7 @@
 package com.augustojbe.client.mapper;
 
 import com.augustojbe.client.dto.SubscriptionTypeDto;
-import com.augustojbe.client.model.SubscriptionType;
+import com.augustojbe.client.model.jpa.SubscriptionType;
 
 public class SubscriptionTypeMapper {
 

@@ -1,6 +1,6 @@
-package com.augustojbe.client.repository;
+package com.augustojbe.client.repository.jpa;
 
-import com.augustojbe.client.model.UserType;
+import com.augustojbe.client.model.jpa.UserType;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

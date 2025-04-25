@@ -1,6 +1,6 @@
-package com.augustojbe.client.repository;
+package com.augustojbe.client.repository.jpa;
 
-import com.augustojbe.client.model.User;
+import com.augustojbe.client.model.jpa.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

@@ -4,10 +4,10 @@ import com.augustojbe.client.dto.UserDto;
 import com.augustojbe.client.exception.BadRequestException;
 import com.augustojbe.client.exception.NotFoundException;
 import com.augustojbe.client.mapper.UserMapper;
-import com.augustojbe.client.model.User;
-import com.augustojbe.client.model.UserType;
-import com.augustojbe.client.repository.UserRepository;
-import com.augustojbe.client.repository.UserTypeRepository;
+import com.augustojbe.client.model.jpa.User;
+import com.augustojbe.client.model.jpa.UserType;
+import com.augustojbe.client.repository.jpa.UserRepository;
+import com.augustojbe.client.repository.jpa.UserTypeRepository;
 import com.augustojbe.client.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,10 @@ public class UserServiceImpl implements UserService {
 
     private final UserTypeRepository userTypeRepository;
 
-    public UserServiceImpl(UserRepository userRepository, UserTypeRepository userTypeRepository) {
+
+
+    public UserServiceImpl(UserRepository userRepository,
+                           UserTypeRepository userTypeRepository) {
         this.userRepository = userRepository;
         this.userTypeRepository = userTypeRepository;
     }

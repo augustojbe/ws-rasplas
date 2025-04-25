@@ -1,6 +1,6 @@
 package com.augustojbe.client.service.impl;
 
-import com.augustojbe.client.model.UserCredential;
+import com.augustojbe.client.model.jpa.UserCredential;
 import com.augustojbe.client.service.TokenService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -59,6 +59,9 @@ public class TokenServiceImpl implements TokenService {
     }
 
     private Jws<Claims> getClaimsJws(String token) {
+        if (token == null || token.isBlank()) {
+            throw new IllegalArgumentException("Token JWT não pode ser nulo ou vazio.");
+        }
         SecretKey key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
         return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
     }

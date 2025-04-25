@@ -1,7 +1,5 @@
 package com.augustojbe.client.dto;
 
-import com.augustojbe.client.model.User;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;

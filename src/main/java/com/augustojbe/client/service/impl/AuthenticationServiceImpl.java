@@ -11,12 +11,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EuthenticationServiceImpl implements AuthenticationService {
+public class AuthenticationServiceImpl implements AuthenticationService {
 
     private final AuthenticationManager authenticationManager;
     private final TokenService tokenService;
 
-    public EuthenticationServiceImpl(AuthenticationManager authenticationManager, TokenService tokenService) {
+    public AuthenticationServiceImpl(AuthenticationManager authenticationManager, TokenService tokenService) {
         this.authenticationManager = authenticationManager;
         this.tokenService = tokenService;
     }

@@ -1,7 +1,7 @@
 package com.augustojbe.client.conf;
 
 import com.augustojbe.client.filter.AuthenticationFilter;
-import com.augustojbe.client.repository.UseDetailRepository;
+import com.augustojbe.client.repository.jpa.UseDetailRepository;
 import com.augustojbe.client.service.TokenService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -48,13 +48,13 @@ public class WebSecurityConfig {
                 .httpBasic(basic -> basic.disable())
                 .authorizeHttpRequests(auth ->
                         auth
-                                .requestMatchers("/ws-rasplus/user-type").authenticated()
                                 .requestMatchers(HttpMethod.POST, "/user").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/users").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/auth").permitAll()
+                                .requestMatchers( "/auth").permitAll()
+                                .requestMatchers( "/auth/recovery-code/*").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/payment/process").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/subscription-type").permitAll()
-                                .requestMatchers(HttpMethod.GET, "/subscription-type/*").permitAll()
+                                .requestMatchers( "/subscription-type/*").permitAll()
                                 .requestMatchers(DOCUMENTATION_OPENAPI).permitAll()
                                 .anyRequest().authenticated()
                 ).sessionManagement( session ->

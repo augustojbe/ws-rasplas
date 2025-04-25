@@ -1,4 +1,4 @@
-package com.augustojbe.client.model;
+package com.augustojbe.client.model.jpa;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

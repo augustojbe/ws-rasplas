@@ -1,6 +1,6 @@
-package com.augustojbe.client.repository;
+package com.augustojbe.client.repository.jpa;
 
-import com.augustojbe.client.model.UserCredential;
+import com.augustojbe.client.model.jpa.UserCredential;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

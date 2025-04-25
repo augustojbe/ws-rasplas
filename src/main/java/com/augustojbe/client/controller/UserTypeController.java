@@ -1,7 +1,7 @@
 package com.augustojbe.client.controller;
 
-import com.augustojbe.client.model.UserType;
-import com.augustojbe.client.repository.UserTypeRepository;
+import com.augustojbe.client.model.jpa.UserType;
+import com.augustojbe.client.repository.jpa.UserTypeRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

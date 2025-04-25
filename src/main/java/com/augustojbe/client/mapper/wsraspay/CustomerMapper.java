@@ -1,7 +1,7 @@
 package com.augustojbe.client.mapper.wsraspay;
 
 import com.augustojbe.client.dto.wsraspay.CustomerDto;
-import com.augustojbe.client.model.User;
+import com.augustojbe.client.model.jpa.User;
 
 public class CustomerMapper {
 

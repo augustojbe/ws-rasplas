@@ -5,8 +5,8 @@ import com.augustojbe.client.dto.SubscriptionTypeDto;
 import com.augustojbe.client.exception.BadRequestException;
 import com.augustojbe.client.exception.NotFoundException;
 import com.augustojbe.client.mapper.SubscriptionTypeMapper;
-import com.augustojbe.client.model.SubscriptionType;
-import com.augustojbe.client.repository.SubscriptionTypeRepository;
+import com.augustojbe.client.model.jpa.SubscriptionType;
+import com.augustojbe.client.repository.jpa.SubscriptionTypeRepository;
 import com.augustojbe.client.service.SubscriptionTypeService;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -85,4 +85,5 @@ public class SubscriptionTypeServiceImpl implements SubscriptionTypeService {
         }
         return optionalSubscriptionType.get();
     }
+
 }
