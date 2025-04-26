@@ -30,20 +30,20 @@ public class AuthenticationController {
         this.tokenService = tokenService;
         this.appUserDetailsService = appUserDetailsService;
     }
-
-    @PostMapping
-    public ResponseEntity<TokenDto> auth(@RequestBody @Valid LoginDto dto) {
-        UsernamePasswordAuthenticationToken userPassAuth =
-                new UsernamePasswordAuthenticationToken(dto.getUsername(), dto.getPassword());
-
-        try {
-            Authentication auth = authenticationManager.authenticate(userPassAuth);
-            String token = tokenService.getToken(auth);
-            return ResponseEntity.status(HttpStatus.OK).body(token);
-        } catch (Exception ex) {
-            throw new BadRequestException("Erro ao formatar token - " + ex.getMessage());
-        }
-    }
+//
+//    @PostMapping
+//    public ResponseEntity<TokenDto> auth(@RequestBody @Valid LoginDto dto) {
+//        UsernamePasswordAuthenticationToken userPassAuth =
+//                new UsernamePasswordAuthenticationToken(dto.getUsername(), dto.getPassword());
+//
+//        try {
+//            Authentication auth = authenticationManager.authenticate(userPassAuth);
+//            String token = tokenService.getToken(auth);
+//            return ResponseEntity.status(HttpStatus.OK).body(token);
+//        } catch (Exception ex) {
+//            throw new BadRequestException("Erro ao formatar token - " + ex.getMessage());
+//        }
+//    }
 
 
     @PostMapping("/recovery-code/send")
