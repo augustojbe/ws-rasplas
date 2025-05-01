@@ -27,4 +27,8 @@ public class OpenAPIConfig {
                         .description("Repositorio do GitHub")
                         .url("https://github.com/augustojbe"));
     }
+
+
+
+
 }
